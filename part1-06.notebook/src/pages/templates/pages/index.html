@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Hello Notes!</title>
+    </head>
+
+    <body>
+        <h1>Hello Notes!</h1>
+
+        <h2>Add content to list</h2>
+        <form action="/" method="POST">
+            {% csrf_token %}
+            <input type="text" name="content" />
+            <input type="submit" />
+        </form>
+        <ul>
+            {% for user in items %}
+            {{user}}
+            {% endfor %}
+        </ul>
+
+        <h2>Clear everything</h2>
+        <form action="/erase" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="erase" />
+
+    </body>
+</html>
